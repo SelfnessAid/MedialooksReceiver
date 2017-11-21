@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MedialooksReceiver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4gB-Ai-NAs">
+                                <rect key="frame" x="40" y="242" width="294" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="3mH-h2-KVE"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W3z-B9-0eK">
+                                <rect key="frame" x="127" y="317" width="121" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Start Streaming"/>
+                                <connections>
+                                    <action selector="startBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PHj-P0-4gU"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please input the access link and press Start Streaming." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KNN-li-HAZ">
+                                <rect key="frame" x="63" y="172" width="250" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4lH-HL-WAS"/>
+                                    <constraint firstAttribute="width" constant="250" id="TFv-yy-Qix"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.51372549020000002" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="W3z-B9-0eK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1cw-RK-NPM"/>
+                            <constraint firstItem="4gB-Ai-NAs" firstAttribute="top" secondItem="KNN-li-HAZ" secondAttribute="bottom" constant="20" id="4kw-L6-YJg"/>
+                            <constraint firstItem="KNN-li-HAZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RZy-cG-a1d"/>
+                            <constraint firstItem="W3z-B9-0eK" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="WbU-rH-E05"/>
+                            <constraint firstItem="4gB-Ai-NAs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="jqJ-Ex-Bkm"/>
+                            <constraint firstItem="4gB-Ai-NAs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kH7-k0-Yyx"/>
+                            <constraint firstItem="W3z-B9-0eK" firstAttribute="top" secondItem="4gB-Ai-NAs" secondAttribute="bottom" constant="40" id="row-6I-qB1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="accessLikeTextInput" destination="4gB-Ai-NAs" id="ZjJ-lZ-XVD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-98.400000000000006" y="117.39130434782609"/>
+        </scene>
+        <!--Stream View Controller-->
+        <scene sceneID="D2P-wD-wiz">
+            <objects>
+                <viewController storyboardIdentifier="streamVC" id="mhe-qH-9C4" customClass="StreamViewController" customModule="MedialooksReceiver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dqw-AP-vFL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Wn7-Q8-qLr" customClass="RTCEAGLVideoView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Wn7-Q8-qLr" firstAttribute="bottom" secondItem="v0z-vP-eOU" secondAttribute="bottom" id="8gQ-1s-6hX"/>
+                            <constraint firstItem="Wn7-Q8-qLr" firstAttribute="trailing" secondItem="v0z-vP-eOU" secondAttribute="trailing" id="UQl-Am-Xej"/>
+                            <constraint firstItem="Wn7-Q8-qLr" firstAttribute="top" secondItem="v0z-vP-eOU" secondAttribute="top" id="oXJ-tG-Xfy"/>
+                            <constraint firstItem="Wn7-Q8-qLr" firstAttribute="leading" secondItem="v0z-vP-eOU" secondAttribute="leading" id="tPR-Lt-CJz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="v0z-vP-eOU"/>
+                    </view>
+                    <connections>
+                        <outlet property="remoteVideoView" destination="Wn7-Q8-qLr" id="SrM-or-h2q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eRe-my-Xc3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="632.79999999999995" y="116.49175412293854"/>
+        </scene>
+    </scenes>
+</document>
