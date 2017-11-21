@@ -8,6 +8,7 @@ target 'MedialooksReceiver' do
   # Pods for MedialooksReceiver
   pod 'libjingle_peerconnection'
   pod 'Socket.IO-Client-Swift'
+  pod 'SVProgressHUD'
 
   target 'MedialooksReceiverTests' do
     inherit! :search_paths

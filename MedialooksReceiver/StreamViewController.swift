@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import SocketIO
+import SVProgressHUD
 
 //class StreamViewController: UIViewController,  RTCSessionDescriptionDelegate, RTCPeerConnectionDelegate, RTCEAGLVideoViewDelegate {
 
@@ -40,6 +41,7 @@ class StreamViewController: UIViewController, RTCEAGLVideoViewDelegate, RTCPeerC
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        SVProgressHUD.show()
         self.initWebRTC()
         
         remoteVideoView.delegate = self
@@ -191,6 +193,7 @@ class StreamViewController: UIViewController, RTCEAGLVideoViewDelegate, RTCPeerC
             stateString = "RTCICEConnectionFailed"
         case RTCICEConnectionDisconnected:
             stateString = "RTCICEConnectionDisconnected"
+            self.disconnect()
         case RTCICEConnectionClosed:
             stateString = "RTCICEConnectionClosed"
         default:
@@ -250,6 +253,20 @@ class StreamViewController: UIViewController, RTCEAGLVideoViewDelegate, RTCPeerC
     // MARK: - RTCEAGLVideoViewDelegate
     func videoView(_ videoView: RTCEAGLVideoView!, didChangeVideoSize size: CGSize) {
         print(size)
+        SVProgressHUD.dismiss()
+    }
+    
+    func disconnect() {
+        let alertVC = UIAlertController(title: "Notice", message: "Video streaming was disconnected from server. Please check server is lived now or Network is available.", preferredStyle: .alert)
+        let okAct = UIAlertAction(title: "OK", style: .default) { (act) in
+            if (self.peerConnection != nil) {
+                self.peerConnection.close()
+                self.peerConnection = nil
+            }
+            self.dismiss(animated: true, completion: nil)
+        }
+        alertVC.addAction(okAct)
+        self.present(alertVC, animated: true, completion: nil)
     }
 
 }
