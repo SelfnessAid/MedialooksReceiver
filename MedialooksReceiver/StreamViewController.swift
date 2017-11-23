@@ -98,7 +98,12 @@ class StreamViewController: UIViewController, RTCEAGLVideoViewDelegate, RTCPeerC
                 for client in clients {
                     let compareData: [String : String] = client as! NSDictionary as! [String: String]
                     if (compareData["id"] == self.accessID || compareData["nickname"] == self.accessID || compareData["nickName"] == self.accessID  || compareData["name"] == self.accessID  || compareData["strongId"] == self.accessID ) {
-                        self.createPeerConnection(data: compareData)
+                        if (compareData["vidEncoder"] == "h264") {
+                            self.createPeerConnection(data: compareData)
+                        } else {
+                            SVProgressHUD.dismiss()
+                            self.disconnect()
+                        }
                     }
                 }
             }
